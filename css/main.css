@@ -267,6 +267,7 @@ textarea {
   --ptsans: 'PT Sans', sans-serif;
   --opensans: 'Open Sans', sans-serif;
   --naranjafondo: #FE4918;
+  --naranjaOsc: #e33000;
 }
 html {
   box-sizing: border-box;
@@ -291,6 +292,31 @@ h2::after {
   height: 30px;
   width: 100px;
   display: block;
+}
+h3 {
+  font-size: 1.8em;
+  font-feature-settings: var(--ptsans);
+  color: var(--naranjafondo);
+  margin: 0;
+}
+.button {
+  background-color: var(--naranjafondo);
+  padding: 10px 40px;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: var(--oswald);
+  font-size: 1em;
+  margin-top: 20px;
+  display: inline-block;
+  transition: all .6s ease;
+}
+.button:hover {
+  background-color: var(--naranjaOsc);
+}
+.float-right {
+  float: right;
 }
 .seccion {
   padding: 20px;
@@ -456,7 +482,7 @@ h1.nombre-sitio {
 }
 /* Menu movil */
 .menu-movil {
-  width: 60%;
+  width: 60px;
   display: block;
   float: right;
   text-align: right;
@@ -475,4 +501,78 @@ h1.nombre-sitio {
   margin-bottom: 6px;
   background-color: white;
   display: block;
+}
+
+/* Talleres */
+.programa {
+  position: relative;
+}
+.contenedor-video {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+.contenido-programa {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.programa-evento {
+  background-color: rgba(255,255,255,.8);
+  padding: 15px;
+  margin-top: 80px;
+}
+@media only screen and (min-width:768px) {
+  .programa-evento {
+    width: 70%;
+  }
+}
+@media only screen and (min-width:992px) {
+  .programa-evento {
+    width: 70%;
+  }
+}
+.menu-programa {
+  width: 100%;;
+  border-bottom: 1px solid black;
+  padding-bottom: 8px;
+}
+@media only screen and (min-width:768px) {
+  .menu-programa {
+    display: table;
+  }
+}
+.menu-programa a{
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-family: var(--oswald);
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+@media only screen and (min-width:768px) {
+  .menu-programa a {
+    display: table-cell;
+  }
+}
+.menu-programa a i,
+.detalle-evento p i {
+  font-size: 1.6em;
+  color: var(--naranjafondo);
+  margin-right: 10px;
+}
+/* Detalle evento */
+.detalle-evento {
+  margin-top: 20px;
+  border-bottom: 1px solid black;
+  padding: 0 20px;
+}
+.detalle-evento:nth-child(2) {
+  border: none;
+}
+.detalle-evento p {
+  margin-bottom: 20px;
+  font-size: 20px;
 }
