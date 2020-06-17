@@ -311,10 +311,17 @@ h3 {
   margin-top: 20px;
   display: inline-block;
   transition: all .6s ease;
+  border: 2px solid var(--naranjafondo);
+}
+.button.hollow, 
+.button.hollow:hover {
+  background-color: white;
+  color: var(--naranjafondo);
 }
 .button:hover {
   background-color: var(--naranjaOsc);
 }
+
 .float-right {
   float: right;
 }
@@ -673,6 +680,66 @@ h1.nombre-sitio {
 .numero {
   color: var(--naranjafondo);
   font-size: 3em;
+  font-weight: bold;
   display: block;
   margin: 0 0 10px 0;
+  font-family: var(--oswald);
+}
+/* Tabla de precios */
+.lista-precios > li { /* el > hace que solo aplique al primer hijo  */
+  padding: 10px;
+}
+@media only screen and (min-width:768px) {
+  .lista-precios > li {
+    float: left;
+    width: 33.3%;
+  }
+}
+.precios {
+  background-color: #e3e3e3;
+}
+.tabla-precio {
+  border: 1px solid #1e1e1e;
+  background-color: white;
+  padding: 30px 0;
+  text-align: center;
+  transition: all .3s ease-in-out;
+}
+.tabla-precio:hover {
+  transform: scale(1.1);
+  border: 1px solid var(--naranjafondo);
+  box-shadow: 0px 0px 50px #666;
+}
+.tabla-precio h3 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: var(--oswald);
+  /* font-size: 16px; */
+}
+.tabla-precio .numero {
+  color: black;
+  font-size: 3em;
+  margin: 5px 0;
+}
+.tabla-precio ul li {
+  font-family: var(--ptsans);
+  font-size: 14px;
+  margin-bottom: 20px;
+  line-height: 24px;
+  color: #868686;
+}
+.tabla-precio ul li:before {
+  content: '\f00c';
+  font-family: 'FontAwesome';
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 5px;
+  font-size: 20px;
+  color: green;
+  -webkit-font-smoothing: antialiased;
+}
+/* MAPA */
+.mapa {
+  height: 420px;
+  background-color: green;
 }
