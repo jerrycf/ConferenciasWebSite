@@ -18,6 +18,7 @@
 
   <script src="https://kit.fontawesome.com/2b20c5f1bc.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald:wght@200&family=PT+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
 
@@ -50,7 +51,7 @@
   <div class="barra">
     <div class="contenedor clearfix">
       <div class="logo">
-        <img src="img/logo.svg" alt="Logo">
+        <a href="index.html"><img src="img/logo.svg" alt="Logo"></a>
       </div>
       <div class="menu-movil">
         <span></span>
@@ -61,7 +62,7 @@
           <a href="#">Conferencia</a>
           <a href="#">Calendario</a>
           <a href="#">Invitados</a>
-          <a href="#">Reservaciones</a>
+          <a href="registro.html">Reservaciones</a>
       </nav>
     </div><!--contenedor-->
   </div> <!--barra-->
@@ -174,7 +175,7 @@
         <li>
           <div class="tabla-precio">
             <h3>Pase por día</h3>
-            <p class="numero">$38</p>
+            <p class="numero">$30</p>
             <ul>
               <li>Bocadillos Gratis</li>
               <li>Todas las conferencisa</li>
@@ -303,6 +304,7 @@
   </footer>
 
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
 

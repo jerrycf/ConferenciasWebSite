@@ -312,6 +312,7 @@ h3 {
   display: inline-block;
   transition: all .6s ease;
   border: 2px solid var(--naranjafondo);
+  cursor: pointer;
 }
 .button.hollow, 
 .button.hollow:hover {
@@ -718,9 +719,9 @@ h1.nombre-sitio {
 }
 .tabla-precio h3 {
   text-transform: uppercase;
-  font-weight: bold;
   font-family: var(--oswald);
-  /* font-size: 16px; */
+  font-size: 16px;
+  font-weight: bold;
 }
 .tabla-precio .numero {
   color: black;
@@ -747,7 +748,6 @@ h1.nombre-sitio {
 /* MAPA */
 .mapa {
   height: 420px;
-  background-color: green;
 }
 /* Testimoniales */
 .testimoniales {
@@ -788,6 +788,7 @@ blockquote p:before {
 }
 .footer-testimonial {
   padding: 0;
+  background-color: transparent;
 }
 .footer-testimonial img {
   float: left;
@@ -851,38 +852,38 @@ blockquote p:before {
   }
 }
 /* site footer */
-.site-footer {
+footer {
   background-color: #3e3e3e;
   padding-top: 30px;
   margin-top: 20px;
 }
-.site-footer .contenedor > div {
+footer .contenedor > div {
   color: white;
   padding: 0 20px;
   font-size: 12px;
 }
-.site-footer p,
-.site-footer ul li {
+footer p,
+footer ul li {
   color: white;
   text-align: justify;
   margin-bottom: 10px;
 }
-.site-footer h3 {
+footer h3 {
   color: white;
   text-transform: uppercase;
   font-family: var(--oswald);
   margin-bottom: 20px;
 }
-.site-footer h3 span {
+footer h3 span {
   color: var(--naranjafondo);
 }
 @media only screen and (min-width:768px) {
-  .site-footer .contenedor > div {
+  footer .contenedor > div {
     width: 33.3%;
     float: left;
   }
 }
-.site-footer nav.redes-sociales {
+footer nav.redes-sociales {
   text-align: left;
 }
 .copyright {
@@ -890,4 +891,117 @@ blockquote p:before {
   padding: 10px 0;
   color: white;
   text-align: center;
+}
+
+/*** PAGINAS INTERNAS ***/
+/* Registro */
+.registro h3 {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 20px 0 0;
+}
+.registro label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+h4 {
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--naranjafondo);
+  padding-bottom: 10px;
+  font-size: 1.2em;
+}
+.caja {
+  background-color: white;
+  border: 1px solid #e1e1e1;
+  padding: 15px;
+  margin: 15px;
+}
+.campo {
+  padding: 15px;
+}
+@media only screen and (min-width:768px) {
+  .campo {
+    float: left;
+    width: 33.3%;
+  }
+}
+#error {
+  clear: both;
+  padding: 20px;
+  display: none;
+  text-align: center;
+  margin: auto;
+}
+@media only screen and (min-width:768px) {
+  #error {
+    clear: none;
+    padding: 10px;
+  }
+}
+.paquetes .tabla-precio:hover {
+  transform: none;
+  box-shadow: none;
+}
+.paquetes .tabla-precio input {
+  clear: both;
+  width: 100px;
+  margin: 10px auto 0 auto;
+  display: block;
+}
+.contenido-dia {
+  padding: 20px;
+  display: none;
+}
+@media only screen and (min-width:768px) {
+  .contenido-dia  > div{
+    float: left;
+    width: 33.3%;
+  }
+}
+.contenido-dia > div p {
+  text-align: left;
+  font-weight: bold;
+}
+.contenido-dia > div label {
+  display: block;
+  margin-bottom: 15px;
+}
+.contenido-dia > div input {
+  margin-right: 10px;
+}
+.contenido-dia > div label time {
+  color: var(--naranjafondo);
+}
+/* Resume compra */
+.resumen p {
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+.resumen .extras {
+  float: left;
+  width: 50%;
+  padding: 30px;
+}
+.extras .orden {
+  text-align: left;
+  margin-bottom: 10px;
+}
+.extras .orden input {
+  margin: 10px 0 0 0;
+}
+.resumen .total {
+  float: right;
+  width: 50%;
+  padding: 30px;
+  text-align: center;
+}
+.resumen input {
+  display: block; 
+  margin: 10px auto;
+}
+#lista-productos {
+  background-color: #e1e1e1;
+  padding: 15px;
+  display: none;
 }
