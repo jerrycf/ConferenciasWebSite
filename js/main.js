@@ -134,6 +134,10 @@
 
 
 $(function(){
+     //Lettering
+     $('.nombre-sitio').lettering();
+
+    //Programa de conferencias
     $('.programa-evento .info-curso:first').show();
     
     $('.menu-programa a:first').addClass('activo');
@@ -145,6 +149,20 @@ $(function(){
         $(enlace).fadeIn(1000);
 
         return false;
+    });
+
+    //Animaciones para los números
+    $(' .resumen-evento li:nth-child(1) p').animateNumber({number: 6}, 3000);
+    $(' .resumen-evento li:nth-child(2) p').animateNumber({number: 15}, 3000);
+    $(' .resumen-evento li:nth-child(3) p').animateNumber({number: 3}, 3000);
+    $(' .resumen-evento li:nth-child(4) p').animateNumber({number: 9}, 3000);
+
+    //Cuenta regresiva
+    $('.cuenta-regresiva').countdown('2020/10/30 09:35:00', function(event){
+        $('#dias').html(event.strftime('%D'));
+        $('#horas').html(event.strftime('%H'));
+        $('#minutos').html(event.strftime('%M'));
+        $('#segundos').html(event.strftime('%S'));
     });
 });
 
