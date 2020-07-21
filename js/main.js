@@ -1,4 +1,4 @@
-(function(){
+(function() {
     "use strict";
     var regalo = document.getElementById('regalo')
     document.addEventListener("DOMContentLoaded", function(){
@@ -35,14 +35,22 @@
         var etiquetas = document.getElementById('etiquetas');
 
         //Eventos
-        calcular.addEventListener('click', calcularMontos);
-        pase_dia.addEventListener('blur', mostrarDias);
-        pase_dosdias.addEventListener('blur', mostrarDias);
-        pase_completo.addEventListener('blur', mostrarDias);
-        nombre.addEventListener('blur', validarCampos);
-        apellido.addEventListener('blur', validarCampos);
-        email.addEventListener('blur', validarCampos);
-        email.addEventListener('blur', validarMail);
+        if (calcular != null)
+            calcular.addEventListener('click', calcularMontos);
+        if (pase_dia != null)
+            pase_dia.addEventListener('blur', mostrarDias);
+        if (pase_dosdias != null)
+            pase_dosdias.addEventListener('blur', mostrarDias);
+        if (pase_completo != null)
+            pase_completo.addEventListener('blur', mostrarDias);
+        if (nombre != null)
+            nombre.addEventListener('blur', validarCampos);
+        if (apellido != null)
+            apellido.addEventListener('blur', validarCampos);
+        if (email != null)
+            email.addEventListener('blur', validarCampos);
+        if (email != null)
+            email.addEventListener('blur', validarMail);
 
         function calcularMontos(event){
             event.preventDefault();
@@ -119,8 +127,25 @@
                 this.style.border = '1px solid #cccccc';
             }
         }
-        
-        
-        
+
     });//Document ready
 })();
+
+
+
+$(function(){
+    $('.programa-evento .info-curso:first').show();
+    
+    $('.menu-programa a:first').addClass('activo');
+    $('.menu-programa a').on('click', function(){
+        $('.menu-programa a').removeClass('activo');
+        $(this).addClass('activo');
+        var enlace = $(this).attr('href');
+        $('.ocultar').hide();
+        $(enlace).fadeIn(1000);
+
+        return false;
+    });
+});
+
+

@@ -17,6 +17,7 @@
   <!-- Place favicon.ico in the root directory -->
 
   <script src="https://kit.fontawesome.com/2b20c5f1bc.js" crossorigin="anonymous"></script>
+  
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald:wght@200&family=PT+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
   <link rel="stylesheet" href="css/normalize.css">
@@ -90,26 +91,58 @@
         <div class="programa-evento">
           <h2>Programa del evento</h2>
           <nav class="menu-programa">
-            <a href="#"><i class="fa fa-code"></i>Talleres</a>
-            <a href="#"><i class="fa fa-comment"></i>conferencias</a>
-            <a href="#"><i class="fa fa-university"></i>Seminarios</a>
+            <a href="#talleres"><i class="fa fa-code"></i>Talleres</a>
+            <a href="#conferencias"><i class="fa fa-comment"></i>Conferencias</a>
+            <a href="#seminarios"><i class="fa fa-university"></i>Seminarios</a>
           </nav>
           <div id="talleres" class="info-curso ocultar clearfix">
             <div class="detalle-evento">
               <h3>HTML5, CSS3 & JavaScript</h3>
-              <p><i class="fa fa-clock-o"></i> 16hrs </p>
+              <p><i class="fa fa-clock-o"></i> 16:00 hrs </p>
               <p><i class="fa fa-calendar"></i> 10 de Diciembre </p>
               <p><i class="fa fa-user"></i> Nombre de Autor </p>
             </div>
 
             <div class="detalle-evento">
               <h3>Responsive Web Design</h3>
-              <p><i class="fa fa-clock-o"></i> 20hrs </p>
+              <p><i class="fa fa-clock-o"></i> 20:00 hrs </p>
               <p><i class="fa fa-calendar"></i> 10 de Diciembre </p>
               <p><i class="fa fa-user"></i> Nombre de Autor </p>
             </div>
             <a href="#" class="button float-right"> Ver todos </a>
           </div> <!-- talleres -->
+          <div id="conferencias" class="info-curso ocultar clearfix">
+            <div class="detalle-evento">
+              <h3>Como ser Freelancer</h3>
+              <p><i class="fa fa-clock-o"></i> 10:00 hrs </p>
+              <p><i class="fa fa-calendar"></i> 10 de Diciembre </p>
+              <p><i class="fa fa-user"></i> Nombre de Autor </p>
+            </div>
+
+            <div class="detalle-evento">
+              <h3>Tecnologías del futuro</h3>
+              <p><i class="fa fa-clock-o"></i> 17:00 hrs </p>
+              <p><i class="fa fa-calendar"></i> 10 de Diciembre </p>
+              <p><i class="fa fa-user"></i> Nombre de Autor </p>
+            </div>
+            <a href="#" class="button float-right"> Ver todos </a>
+          </div> <!-- conferencias -->
+          <div id="seminarios" class="info-curso ocultar clearfix">
+            <div class="detalle-evento">
+              <h3>Diseño UI/UX para móviles</h3>
+              <p><i class="fa fa-clock-o"></i> 17:00 hrs </p>
+              <p><i class="fa fa-calendar"></i> 11 de Diciembre </p>
+              <p><i class="fa fa-user"></i> Nombre de Autor </p>
+            </div>
+
+            <div class="detalle-evento">
+              <h3>Aprende a programa rápido</h3>
+              <p><i class="fa fa-clock-o"></i> 10:00 hrs </p>
+              <p><i class="fa fa-calendar"></i> 11 de Diciembre </p>
+              <p><i class="fa fa-user"></i> Nombre de Autor </p>
+            </div>
+            <a href="#" class="button float-right"> Ver todos </a>
+          </div> <!-- seminarios -->
         </div> <!-- programa-evento -->
       </div> <!-- contenedor -->
     </div><!-- contenido-programa -->
@@ -303,10 +336,13 @@
     <p class="copyright">Todos los derechos reservados GDLWEBCAMP 2020</p>
   </footer>
 
+    
+    <script src="js/plugins.js"></script>
     <script src="js/vendor/modernizr-3.11.2.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/jquery-1.12.0.min.js"></script>
+    <script src="js/main.js"></script>    
+
 
     <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
     <script>
