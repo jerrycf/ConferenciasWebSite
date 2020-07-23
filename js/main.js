@@ -35,22 +35,17 @@
         var etiquetas = document.getElementById('etiquetas');
 
         //Eventos
-        if (calcular != null)
-            calcular.addEventListener('click', calcularMontos);
-        if (pase_dia != null)
-            pase_dia.addEventListener('blur', mostrarDias);
-        if (pase_dosdias != null)
-            pase_dosdias.addEventListener('blur', mostrarDias);
-        if (pase_completo != null)
-            pase_completo.addEventListener('blur', mostrarDias);
-        if (nombre != null)
-            nombre.addEventListener('blur', validarCampos);
-        if (apellido != null)
-            apellido.addEventListener('blur', validarCampos);
-        if (email != null)
-            email.addEventListener('blur', validarCampos);
-        if (email != null)
-            email.addEventListener('blur', validarMail);
+        if (document.getElementById('calcular')){
+
+
+        calcular.addEventListener('click', calcularMontos);
+        pase_dia.addEventListener('blur', mostrarDias);
+        pase_dosdias.addEventListener('blur', mostrarDias);
+        pase_completo.addEventListener('blur', mostrarDias);
+        nombre.addEventListener('blur', validarCampos);
+        apellido.addEventListener('blur', validarCampos);
+        email.addEventListener('blur', validarCampos);
+        email.addEventListener('blur', validarMail);
 
         function calcularMontos(event){
             event.preventDefault();
@@ -127,6 +122,8 @@
                 this.style.border = '1px solid #cccccc';
             }
         }
+        
+        }   
 
     });//Document ready
 })();
@@ -134,10 +131,31 @@
 
 
 $(function(){
-     //Lettering
+     // Lettering
      $('.nombre-sitio').lettering();
 
-    //Programa de conferencias
+    //  Menu Fijo
+    var windowHeight = $(window).height();
+    var barraAltura = $('.barra').innerHeight();
+    console.log('window height: ' + windowHeight);
+    console.log('Barra Algura: ' + barraAltura);
+    $(window).scroll(function(){
+        var scroll = $(window).scrollTop();
+        if (scroll > windowHeight){
+            $('.barra').addClass('fixed');
+            $('body').css({'margin-top': barraAltura+'px'});
+        } else {
+            $('.barra').removeClass('fixed');
+            $('body').css({'margin-top': '0px'});
+        }
+    });
+
+    // Menu responsive
+    $('.menu-movil').on('click', function(){
+        $('.navegacion-principal').slideToggle();
+    });
+
+    //  Programa de conferencias
     $('.programa-evento .info-curso:first').show();
     
     $('.menu-programa a:first').addClass('activo');
@@ -151,13 +169,13 @@ $(function(){
         return false;
     });
 
-    //Animaciones para los números
+    //  Animaciones para los números
     $(' .resumen-evento li:nth-child(1) p').animateNumber({number: 6}, 3000);
     $(' .resumen-evento li:nth-child(2) p').animateNumber({number: 15}, 3000);
     $(' .resumen-evento li:nth-child(3) p').animateNumber({number: 3}, 3000);
     $(' .resumen-evento li:nth-child(4) p').animateNumber({number: 9}, 3000);
 
-    //Cuenta regresiva
+    //  Cuenta regresiva
     $('.cuenta-regresiva').countdown('2020/10/30 09:35:00', function(event){
         $('#dias').html(event.strftime('%D'));
         $('#horas').html(event.strftime('%H'));
