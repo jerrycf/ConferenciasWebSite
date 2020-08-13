@@ -1,74 +1,8 @@
-<!doctype html>
-<html class="no-js" lang="">
-
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
-
-  <script src="https://kit.fontawesome.com/2b20c5f1bc.js" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald:wght@200&family=PT+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
-
-  <meta name="theme-color" content="#fafafa">
-</head>
-
-<body>
-  <header class="site-header">
-    <div class="hero">
-      <div class="contenido-header">
-        <nav class="redes-sociales">
-          <a href="#"><i class="fab fa-facebook-square"></i></a>
-          <a href="#"><i class="fab fa-twitter-square"></i></a>
-          <a href="#"><i class="fab fa-pinterest-square"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-instagram-square"></i></a>
-        </nav>
-        <div class="informacion-evento">
-          <div class="clearfix">
-            <p class="fecha"><i class="far fa-calendar-alt"></i>10-12-Diciembre</p>
-            <p class="ciudad"><i class="fas fa-map-marker"></i>Coatzacoalcos</p>
-          </div>
-          <h1 class="nombre-sitio">WebCamp</h1>
-          <p class="slogan">La mejor conferencia de <span>Diseño Web</span></p>
-        </div><!--informacion-evento-->
-      </div>
-    </div><!--hero-->
-  </header>
-
-  <div class="barra">
-    <div class="contenedor clearfix">
-      <div class="logo">
-        <a href="index.html"><img src="img/logo.svg" alt="Logo"></a>
-      </div>
-      <div class="menu-movil">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <nav class="navegacion-principal">
-          <a href="#">Conferencia</a>
-          <a href="#">Calendario</a>
-          <a href="#">Invitados</a>
-          <a href="registro.html">Reservaciones</a>
-      </nav>
-    </div><!--contenedor-->
-  </div> <!--barra-->
+<?php include_once 'includes/templates/header.php' ?>
 
   <section class="seccion contenedor">
     <h2>Registro de los usuarios</h2>
-    <form id="registro" class="registro" action="index.html" method="post">
+    <form id="registro" class="registro" action="validar_registro.php" method="post">
         <div id="datos-usuario" class="registro caja clearfix">
             <div class="campo">
                 <label for="nombre">Nombre: </label>
@@ -103,7 +37,7 @@
                     </ul>
                     <div class="orden">
                         <label for="pase_dia">Boletos deseados: </label>
-                        <input type="number" min="0" id="pase_dia" size="3" placeholder="0">
+                        <input type="number" min="0" id="pase_dia" size="3" name="boletos[]" placeholder="0">
                     </div>
                   </div>
                 </li>
@@ -119,7 +53,7 @@
                     </ul>
                     <div class="orden">
                         <label for="pase_completo">Boletos deseados: </label>
-                        <input type="number" min="0" id="pase_completo" size="3" placeholder="0">
+                        <input type="number" min="0" id="pase_completo" size="3" name="boletos[] placeholder="0">
                     </div>
                   </div>
                 </li>
@@ -135,7 +69,7 @@
                     </ul>
                     <div class="orden">
                         <label for="pase_dosdias">Boletos deseados: </label>
-                        <input type="number" min="0" id="pase_dosdias" size="3" placeholder="0">
+                        <input type="number" min="0" id="pase_dosdias" size="3" name="boletos[] placeholder="0">
                     </div>
                   </div>
                 </li>
@@ -220,19 +154,19 @@
                 <div class="extras">
                     <div class="orden">
                         <label for="camisa_evento">Camisa del evento $10 <small>(promocion 7% desc.)</small></label>
-                        <input type="number" min="0" id="camisa_evento" size="3" placeholder="0">
+                        <input type="number" min="0" id="camisa_evento" size="3" name="pedido_camisas" placeholder="0">
                     </div><!-- orden -->
                     <div class="orden">
                         <label for="etiquetas">Paquete de 10 etiquetas $2<small>(HTML5, CSS3, JavaScript, Chrome)</small></label>
-                        <input type="number" min="0" id="etiquetas" size="3" placeholder="0">
+                        <input type="number" min="0" id="etiquetas" size="3" name="pedido_etiquetas" placeholder="0">
                     </div><!-- orden -->
                     <div class="orden">
                         <label for="regalo">Seleccione un regalo</label>
                         <select name="regalo" id="regalo" required>
                             <option value="">-- Seleccione un regalo --</option>
-                            <option value="eti">Etiquetas</option>
-                            <option value="pul">Pulsera</option>
-                            <option value="plu">Plumas</option>
+                            <option value="2">Etiquetas</option>
+                            <option value="1">Pulsera</option>
+                            <option value="3">Plumas</option>
                         </select>
                     </div><!-- orden -->
                     <input type="button" id="calcular" class="button" value="Calcular">
@@ -246,53 +180,12 @@
                     <div id="suma-total">
 
                     </div>
-                    <input type="submit" id="btnRegistro" class="button" value="Pagar">
+                    <input type="hidden" name="total_pedido" id="total_pedido">
+                    <input type="submit" name="submit" id="btnRegistro" class="button" value="Pagar">
                 </div><!-- Total -->
             </div><!-- Caja -->
         </div><!-- Resumen -->
     </form>
   </section>
 
-  <footer class="site-footer">
-    <div class="contenedor clearfix">
-      <div class="footer-info">
-        <h3>Sobre <span>gdlWebCamp</span></h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pharetra sed est sed vestibulum. Fusce condimentum.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pharetra sed est sed vestibulum. Fusce condimentum.
-        </p>
-      </div>
-      <div class="ultimos-tweets">
-        <h3>Últimos <span>Tweets</span></h3>
-        <ul>
-          <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pharetra sed est sed vestibulum.</li>
-          <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pharetra sed est sed vestibulum.</li>
-          <li> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pharetra sed est sed vestibulum.</li>
-        </ul>
-      </div>
-      <div class="menu">
-        <h3>Redes <span>Sociales</span></h3>
-        <nav class="redes-sociales">
-          <a href="#"><i class="fab fa-facebook-square"></i></a>
-          <a href="#"><i class="fab fa-twitter-square"></i></a>
-          <a href="#"><i class="fab fa-pinterest-square"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-instagram-square"></i></a>
-        </nav>
-      </div>
-    </div>
-    <p class="copyright">Todos los derechos reservados GDLWEBCAMP 2020</p>
-  </footer>
-
-    <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-
-    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-    <script>
-      window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-      ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-    </script>
-    <script src="https://www.google-analytics.com/analytics.js" async></script>
-</body>
-
-</html>
+  <?php include_once 'includes/templates/footer.php' ?>

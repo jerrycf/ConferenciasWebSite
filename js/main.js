@@ -3,14 +3,15 @@
     var regalo = document.getElementById('regalo')
     document.addEventListener("DOMContentLoaded", function(){
         //Mapa 
-        var map = L.map('mapa').setView([18.148135, -94.461415], 16);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-        L.marker([18.148135, -94.461415]).addTo(map)
-            .bindPopup('GDLWebcamp 2020. <br> Ubicacion')
-            .openPopup();
-            
+        if (document.getElementById('mapa')){
+            var map = L.map('mapa').setView([18.148135, -94.461415], 16);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            L.marker([18.148135, -94.461415]).addTo(map)
+                .bindPopup('GDLWebcamp 2020. <br> Ubicacion')
+                .openPopup();
+        }   
         
         
         //Campos usuario
@@ -26,7 +27,7 @@
         //Botones & divs
         var calcular = document.getElementById('calcular');
         var errorDiv = document.getElementById('errorDiv');
-        var btnRegistro = document.getElementById('btnRegistro');
+        var botonRegistro = document.getElementById('btnRegistro');
         var lista_productos = document.getElementById('lista-productos');
         var suma = document.getElementById('suma-total');
 
@@ -34,14 +35,18 @@
         var camisas = document.getElementById('camisa_evento');
         var etiquetas = document.getElementById('etiquetas');
 
+        botonRegistro.disabled = true;
+
         //Eventos
         if (document.getElementById('calcular')){
 
 
         calcular.addEventListener('click', calcularMontos);
+        
         pase_dia.addEventListener('blur', mostrarDias);
         pase_dosdias.addEventListener('blur', mostrarDias);
         pase_completo.addEventListener('blur', mostrarDias);
+        
         nombre.addEventListener('blur', validarCampos);
         apellido.addEventListener('blur', validarCampos);
         email.addEventListener('blur', validarCampos);
@@ -81,10 +86,16 @@
                     lista_productos.innerHTML += ListadoProductos[i] + '<br/>';
                 }
                 suma.innerHTML += '<h3> $ ' + totalPagar.toFixed(2) + '</h3>';
+
+                botonRegistro.disabled = false;
+                document.getElementById('total_pedido').value = totalPagar;
             }
         }
 
         function mostrarDias(){
+            // var boletosDia = parseInt(pase_dia.value, 10)|| 0,
+            //     boletos2Dias = parseInt(pase_dosdias.value, 10)|| 0,
+            //     boletoCompleto = parseInt(pase_completo.value, 10)|| 0;
             var boletosDia = pase_dia.value,
                 boletos2Dias = pase_dosdias.value,
                 boletoCompleto = pase_completo.value;
@@ -96,8 +107,9 @@
                 diasElegidos.push('viernes', 'sabado');
             if (boletoCompleto > 0)
                 diasElegidos.push('viernes', 'sabado', 'domingo');
-            for (var i = 0; i < diasElegidos.length; i++)
-                document.getElementById(diasElegidos[i]).style.display = 'block';
+            
+                for (var i = 0; i < diasElegidos.length; i++)
+                    document.getElementById(diasElegidos[i]).style.display = 'block';
         }
         
         function validarCampos(){
@@ -131,8 +143,13 @@
 
 
 $(function(){
-     // Lettering
-     $('.nombre-sitio').lettering();
+    // Lettering
+    $('.nombre-sitio').lettering();
+
+    // Agregar clase a menu
+    $('body.conferencia .navegacion-principal a:contains("Conferencia")').addClass('activo');
+    $('body.calendario .navegacion-principal a:contains("Calendario")').addClass('activo');
+    $('body.invitados .navegacion-principal a:contains("Invitados")').addClass('activo');
 
     //  Menu Fijo
     var windowHeight = $(window).height();
@@ -182,6 +199,10 @@ $(function(){
         $('#minutos').html(event.strftime('%M'));
         $('#segundos').html(event.strftime('%S'));
     });
+
+    // Colorbox 
+    $('.invitado-info').colorbox({inline:true, width:"50%"});
+    $('.boton_newsletter').colorbox({inline:true, width:"50%"});
 });
 
 
